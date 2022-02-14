@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>UCID Form</title>
+</head>
+<body>
+    <input id="UCID" placeholder="Enter UCID" title="A UCID is a sequence of letters followed by zero to three digits.">
+    <b>UCID</b>
+    <p>
+        <button type="button" onclick="validateUCID()">Submit</button>
+    </p>
+
+    <script>
+        function validateUCID()
+        {
+            let UCID = document.getElementById("UCID").value;
+            let result = UCID.match(/[a-z]+[0-9]{0,3}/)
+            alert(result);
+            /*if (format.test(UCID))
+            {
+                alert("VALID UCID FORMAT");
+            }
+            else
+            {
+                alert("UCID DOES NOT CONFORM TO VALID FORMAT");
+            }*/
+        }
+    </script>
+</body>
+</html>
