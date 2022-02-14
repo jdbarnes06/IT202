@@ -3,27 +3,46 @@
 <head>
     <title>UCID Form</title>
 </head>
+
 <body>
-    <input id="UCID" placeholder="Enter UCID" title="A UCID is a sequence of letters followed by zero to three digits.">
-    <b>UCID</b>
-    <p>
-        <button type="button" onclick="validateUCID()">Submit</button>
-    </p>
+    <form>
+        <p>
+            <input type="text"
+                   id="UCID"
+                   name="UCID_text"
+                   placeholder="Enter UCID"
+                   title="A UCID is a sequence of letters followed by zero to three digits.">
+
+            <b>UCID</b>
+        </p>
+
+        <p>
+            <button type="button"
+                    onclick="validateUCID()">
+                Submit
+            </button>
+        </p>
+    </form>
 
     <script>
         function validateUCID()
         {
-            let UCID = document.getElementById("UCID").value;
-            let result = UCID.match(/[a-z]+[0-9]{0,3}/)
-            alert(result);
-            /*if (format.test(UCID))
+            UCID = document.getElementById("UCID").value;
+
+            result = UCID.match(/^[A-Za-z]+[0-9]{0,3}$/)
+
+            if (result == null)
             {
-                alert("VALID UCID FORMAT");
+                alert("UCID DOES NOT CONFORM TO VALID FORMAT! RE-ENTER");
+            }
+            else if (result == "jb724" || result == "ab123" || result == "cd456")
+            {
+                alert("VALID UCID FORMAT AND UCID FOUND!");
             }
             else
             {
-                alert("UCID DOES NOT CONFORM TO VALID FORMAT");
-            }*/
+                alert("VALID UCID FORMAT BUT INVALID UCID!");
+            }
         }
     </script>
 </body>
