@@ -1,3 +1,51 @@
-﻿body
+﻿h1 
 {
+    text-align: center;
+    font-family: 'Copperplate Gothic', Papyrus, fantasy;
+    color: saddlebrown;
+}
+
+h2 
+{
+    text-align: center;
+    font-family: Monaco, "Lucida Console", monospace;
+    color: darkorange;
+}
+
+h3 
+{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: dodgerblue;
+}
+
+h4 
+{
+    text-align: center;
+    font-family: 'Comic Sans MS', 'Lucida Handwriting', cursive;
+    color: forestgreen;
+}
+
+img
+{
+    margin: auto;
+    display: block;
+    padding: 20px 0px 20px 0px;
+}
+
+p
+{
+    text-align: center;
+}
+
+table, tr, th 
+{
+    margin: auto;
+    border: 3px solid;
+}
+
+ol, ul 
+{
+    margin: auto;
+    display: table;
 }

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Ice Cream Cone</title>
+</head>
+<body>
+    <img id="get_image" src="RegularCone.jpg" onclick="changeImage()" />
+
+    <script>
+        function changeImage()
+        {
+            var image = document.getElementById("get_image");
+
+            if (image.src.match("RegularCone.jpg"))
+            {
+                image.src = "MeltedCone.jpg";
+            }
+            else
+            {
+                image.src = "RegularCone.jpg";
+            }
+        }
+    </script>
+</body>
+</html>
