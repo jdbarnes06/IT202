@@ -1,0 +1,33 @@
+﻿body
+{
+    background-image: url("LLAL.jpg")
+}
+
+div 
+{
+    border: 5px solid green;
+    background-color: lightgrey;
+    margin: auto;
+    width: 50%;
+    padding: 0px 25px 25px 25px;
+}
+
+h1 
+{
+    text-align: center;
+}
+
+label
+{
+    margin: 0px 0px 10px 0px;
+}
+
+input 
+{
+    margin: 0px 0px 10px 0px;
+}
+
+select 
+{
+    margin: 0px 0px 10px 0px;
+}
