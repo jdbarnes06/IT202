@@ -41,9 +41,10 @@ function validate()
         return alert("Password must have at least 1 number.");
     }
 
-    // All special characters ~`!@#$%^&*()_-+={[}]|\:;"'<,>.?/
-    if (password.match(/[]+/) == null)
+    if (password.match(/[~`!@#\$%\^\&*\(\)_\-+={[}\]|\\:;"'<,>.?/]+/) == null)
     {
-        return alert("Password must have at least 1 number.");
+        return alert("Password must have at least 1 special character.");
     }
+
+    alert("All information is valid.")
 }
