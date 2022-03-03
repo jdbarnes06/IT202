@@ -28,7 +28,7 @@ function validate()
 
     if (password.length > 12)
     {
-        return alert("Password can't have more than 12 characters.")
+        return alert("Password can't have more than 12 characters.");
     }
 
     if (password.match(/[A-Z]+/) == null)
@@ -50,7 +50,14 @@ function validate()
 
     if (idNumber.match(/^[0-9]{6}$/) == null)
     {
-        return alert("ID Number must only contain 6 numbers.")
+        return alert("ID Number must only contain 6 numbers.");
+    }
+
+    var phoneNumber = document.getElementById("phonenumber").value;
+
+    if (phoneNumber.match(/^$/) == null)
+    {
+        return alert("Phone Number must only contain 10 numbers that are delineated by spaces or dashes between the 3rd and 4th numbers and the 6th and 7th numbers.");
     }
 
     alert("All information is valid.")
