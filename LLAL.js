@@ -46,5 +46,12 @@ function validate()
         return alert("Password must have at least 1 special character.");
     }
 
+    var idNumber = document.getElementById("idnumber").value;
+
+    if (idNumber.match(/^[0-9]{6}$/) == null)
+    {
+        return alert("ID Number must only contain 6 numbers.")
+    }
+
     alert("All information is valid.")
 }
