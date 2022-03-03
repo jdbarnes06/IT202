@@ -18,7 +18,10 @@ function validate()
 
         if (name.match(/^[A-Za-z]+$/) == null)
         {
-            return alert("Names can only contain letters.");
+            alert("Names can only contain letters.");
+            document.getElementById(names[i]).focus();
+            document.getElementById(names[i]).select();
+            return null;
         }
 
         names[i] = name;
@@ -28,37 +31,79 @@ function validate()
 
     if (password.length > 12)
     {
-        return alert("Password can't have more than 12 characters.");
+        alert("Password can't have more than 12 characters.");
+        document.getElementById("password").focus();
+        document.getElementById("password").select();
+        return null;
     }
 
     if (password.match(/[A-Z]+/) == null)
     {
-        return alert("Password must have at least 1 uppercase letter.");
+        alert("Password must have at least 1 uppercase letter.");
+        document.getElementById("password").focus();
+        document.getElementById("password").select();
+        return null;
     }
 
     if (password.match(/[0-9]+/) == null)
     {
-        return alert("Password must have at least 1 number.");
+        alert("Password must have at least 1 number.");
+        document.getElementById("password").focus();
+        document.getElementById("password").select();
+        return null;
     }
 
     if (password.match(/[~`!@#\$%\^\&*\(\)_\-+={[}\]|\\:;"'<,>.?/]+/) == null)
     {
-        return alert("Password must have at least 1 special character.");
+        alert("Password must have at least 1 special character.");
+        document.getElementById("password").focus();
+        document.getElementById("password").select();
+        return null;
     }
 
     var idNumber = document.getElementById("idnumber").value;
 
     if (idNumber.match(/^[0-9]{6}$/) == null)
     {
-        return alert("ID Number must only contain 6 numbers.");
+        alert("ID Number must contain exactly 6 numbers.");
+        document.getElementById("idnumber").focus();
+        document.getElementById("idnumber").select();
+        return null;
     }
 
     var phoneNumber = document.getElementById("phonenumber").value;
 
-    if (phoneNumber.match(/^$/) == null)
+    if (phoneNumber.match(/^[0-9]{3}[\s|-]{1}[0-9]{3}[\s|-]{1}[0-9]{4}$/) == null)
     {
-        return alert("Phone Number must only contain 10 numbers that are delineated by spaces or dashes between the 3rd and 4th numbers and the 6th and 7th numbers.");
+        alert("Phone Number must contain exactly 10 numbers that are delineated by spaces or dashes between the 3rd and 4th numbers and the 6th and 7th numbers.");
+        document.getElementById("phonenumber").focus();
+        document.getElementById("phonenumber").select();
+        return null;
     }
 
+    var emailAddress = document.getElementById("emailaddress").value;
+    var emailConfirmation = document.getElementById("emailconfirmation").checked;
+
+    if (emailConfirmation == true)
+    {
+        if (emailAddress.match(/^[\S]+[@]{1}[\S]+[.]{1}[\S]{2,4}$/) == null) {
+            alert("Email Address must contain at least one non-whitespace character, followed by an @, and then at least one other non-whitespace character, followed by a period (.), and then 2-4 non-whitespace characters.")
+            document.getElementById("emailaddress").focus();
+            document.getElementById("emailaddress").select();
+            return null;
+        }
+    }
+    else
+    {
+        if (emailAddress.match(/^[\S]+$/))
+        {
+            alert("Don't provide an Email Address if you don't want confirmation.")
+            document.getElementById("emailaddress").focus();
+            document.getElementById("emailaddress").select();
+            return null;
+        }
+    }
+   
     alert("All information is valid.")
 }
+
