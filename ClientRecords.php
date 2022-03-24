@@ -40,6 +40,8 @@
             }
             $con->close();
         ?>
+
+        <a class="lowerHome" href="https://web.njit.edu/~jb724/LLALDB.html">Home</a>
     </form>
 </body>
 </html>

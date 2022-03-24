@@ -9,13 +9,15 @@ form
     display: inline-block;
     background-color: rgba(192, 192, 192, 0.75);
     border: 5px solid white;
-    padding: 0px 25px 25px 25px;
+    padding: 25px;
 }
 
 h1
 {
     font-family: Arial, Helvetica, sans-serif;
     color: darkgreen;
+    padding-top: 0px;
+    margin-top: 0px;
 }
 
 a 
@@ -30,4 +32,25 @@ a
 a:hover
 {
     background-color: purple;
+}
+
+.lowerHome 
+{
+    position: relative;
+    top: 10px;
+}
+
+table, th, td
+{
+    border: solid;
+    border-color: darkgreen;
+    border-collapse: collapse;
+}
+
+th, td
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: darkgreen;
+    padding: 5px;
 }
