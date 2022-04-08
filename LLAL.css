@@ -32,16 +32,15 @@ h1
 
 label
 {
-    margin: 0px 0px 20px 0px;
     font-weight: bold;
 }
 
-label, select, input[type=checkbox] 
+select, input[type=checkbox] 
 {
     margin: 0px 0px 20px 0px;
 }
 
-input[type=text] 
+input[type=text], input[type=password] 
 {
     margin: 0px 0px 20px 0px;
     width: 200%;
