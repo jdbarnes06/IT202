@@ -118,6 +118,24 @@
             $_SESSION['idnumber'] = $idnumber;
             $_SESSION['phonenumber'] = $phonenumber;
             $_SESSION['emailaddress'] = $emailaddress;
+
+            switch ($transaction)
+            {
+                case "search a landscaper's accounts":
+                    echo "<script> location.href='Search.php'; </script>";
+                case "book a customer's appointment":
+                    echo "<script> location.href='Book.php'; </script>";
+                case "place a customer's order":
+                    echo "<script> location.href='Place.php'; </script>";
+                case "update a customer's order":
+                    echo "<script> location.href='Update.php'; </script>";
+                case "cancel a customer's appointment":
+                    echo "<script> location.href='CancelApp.php'; </script>";
+                case "cancel a customer's order":
+                    echo "<script> location.href='CancelOrder.php'; </script>";
+                case "create a new customer account":
+                    echo "<script> location.href='Create.php'; </script>";
+            }
         }
 
         $con->close();
