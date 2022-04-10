@@ -99,11 +99,4 @@ function validate()
             return;
         }
     }
-
-    verify(names[0], names[1], password, idNumber);
-}
-
-function verify(firstName, lastName, password, idNumber)
-{
-    
 }

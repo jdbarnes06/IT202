@@ -7,7 +7,7 @@
 </head>
 <body>
     <div class="mainDiv">
-        <form>
+        <form method="post">
             <h1>Lushest Lawns and Landscaping</h1>
 
             <div class="row">
@@ -78,10 +78,49 @@
                 <option value="create a new customer account">Create a New Customer Account</option>
             </select><br>
 
-            <button type="button" onclick="validate()">Submit</button>
+            <input type="submit" onclick="validate()">
             <button type="reset">Reset</button>
         </form>
     </div>
     <script src="Home.js"></script>
+
+    <?php
+        $servername = "sql1.njit.edu";
+        $username = "jb724";
+        $password = "ejmUc3O1%#W7";
+        $dbname = "jb724";
+
+        $con = mysqli_connect($servername,$username,$password,$dbname);
+
+        if (mysqli_connect_errno())
+        {
+            echo "Failed to connect to MySQL: " . mysqli_connect_error();
+        }
+
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $password = $_POST['password'];
+        $idnumber = $_POST['idnumber'];
+        $phonenumber = $_POST['phonenumber'];
+        $emailaddress = $_POST['emailaddress'];
+        $transaction = $_POST['transaction'];
+
+        $sql = "SELECT * FROM LandscaperRecords WHERE FirstName = '$firstname' AND LastName = '$lastname'
+                AND Password = '$password' AND IDNumber = $idnumber";
+        $result = $con->query($sql);
+        
+        if ($result->num_rows > 0)
+        {
+            session_start();
+            $_SESSION['firstname'] = $firstname;
+            $_SESSION['lastname'] = $lastname;
+            $_SESSION['password'] = $password;
+            $_SESSION['idnumber'] = $idnumber;
+            $_SESSION['phonenumber'] = $phonenumber;
+            $_SESSION['emailaddress'] = $emailaddress;
+        }
+
+        $con->close();
+    ?>
 </body>
 </html>
