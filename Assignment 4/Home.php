@@ -113,11 +113,6 @@
         {
             session_start();
             $_SESSION['firstname'] = $firstname;
-            $_SESSION['lastname'] = $lastname;
-            $_SESSION['password'] = $password;
-            $_SESSION['idnumber'] = $idnumber;
-            $_SESSION['phonenumber'] = $phonenumber;
-            $_SESSION['emailaddress'] = $emailaddress;
 
             switch ($transaction)
             {
