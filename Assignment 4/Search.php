@@ -44,20 +44,20 @@
             
             while ($row = $result->fetch_assoc())
             {
-                echo "<tr><td>".$row["LandscaperRecords.LandscaperFirst"]."</td>
-                          <td>".$row["LandscaperRecords.LandscaperLast"]."</td>
-                          <td>".$row["LandscaperRecords.LandscaperID"]."</td>
-                          <td>".$row["LandscaperRecords.PhoneNumber"]."</td>
-                          <td>".$row["LandscaperRecords.EmailAddress"]."</td>
-                          <td>".$row["ClientRecords.ClientFirst"]."</td>
-                          <td>".$row["ClientRecords.ClientLast"]."</td>
-                          <td>".$row["ClientRecords.ClientID"]."</td>
-                          <td>".$row["ClientOrders.ShippingAddress"]."</td>
-                          <td>".$row["ClientAppointments.ServiceType"]."</td>
-                          <td>".$row["ClientAppointments.ServiceDate"]."</td>
-                          <td>".$row["ClientAppointments.ServiceID"]."</td>
-                          <td>".$row["ClientOrders.ProductType"]."</td>
-                          <td>".$row["ClientOrders.OrderNumber"]."</td></tr>";
+                echo "<tr><td>".$row["LandscaperFirst"]."</td>
+                          <td>".$row["LandscaperLast"]."</td>
+                          <td>".$row["LandscaperID"]."</td>
+                          <td>".$row["PhoneNumber"]."</td>
+                          <td>".$row["EmailAddress"]."</td>
+                          <td>".$row["ClientFirst"]."</td>
+                          <td>".$row["ClientLast"]."</td>
+                          <td>".$row["ClientID"]."</td>
+                          <td>".$row["ShippingAddress"]."</td>
+                          <td>".$row["ServiceType"]."</td>
+                          <td>".$row["ServiceDate"]."</td>
+                          <td>".$row["ServiceID"]."</td>
+                          <td>".$row["ProductType"]."</td>
+                          <td>".$row["OrderNumber"]."</td></tr>";
             }
             
             echo "</table>";
