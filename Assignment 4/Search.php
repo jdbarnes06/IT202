@@ -23,7 +23,7 @@
         
         $sql = "SELECT LandscaperRecords.LandscaperFirst, LandscaperRecords.LandscaperLast,
                 LandscaperRecords.LandscaperID, LandscaperRecords.PhoneNumber, LandscaperRecords.EmailAddress,
-                ClientRecords.FirstName, ClientRecords.LastName, ClientRecords.ClientID,
+                ClientRecords.ClientFirst, ClientRecords.ClientLast, ClientRecords.ClientID,
                 ClientOrders.ShippingAddress, ClientAppointments.ServiceType, ClientAppointments.ServiceDate,
                 ClientAppointments.ServiceID, ClientOrders.ProductType, ClientOrders.OrderNumber
                 FROM ClientAppointments
@@ -49,8 +49,8 @@
                           <td>".$row["LandscaperRecords.LandscaperID"]."</td>
                           <td>".$row["LandscaperRecords.PhoneNumber"]."</td>
                           <td>".$row["LandscaperRecords.EmailAddress"]."</td>
-                          <td>".$row["ClientRecords.FirstName"]."</td>
-                          <td>".$row["ClientRecords.LastName"]."</td>
+                          <td>".$row["ClientRecords.ClientFirst"]."</td>
+                          <td>".$row["ClientRecords.ClientLast"]."</td>
                           <td>".$row["ClientRecords.ClientID"]."</td>
                           <td>".$row["ClientOrders.ShippingAddress"]."</td>
                           <td>".$row["ClientAppointments.ServiceType"]."</td>
