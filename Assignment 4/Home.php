@@ -12,19 +12,19 @@
 
             <div class="row">
                 <div class="column">
-                    <label for="firstname">First Name:</label>
+                    <label for="landscaperfirst">First Name:</label>
                 </div>
                 <div class="column" style="opacity: 1">
-                    <input type="text" id="firstname" name="firstname" placeholder="Required">                    
+                    <input type="text" id="landscaperfirst" name="landscaperfirst" placeholder="Required">                    
                 </div>
             </div>
 
             <div class="row">
                 <div class="column">
-                    <label for="lastname">Last Name:</label>
+                    <label for="landscaperlast">Last Name:</label>
                 </div>
                 <div class="column">
-                    <input type="text" id="lastname" name="lastname" placeholder="Required">
+                    <input type="text" id="landscaperlast" name="landscaperlast" placeholder="Required">
                 </div>
             </div>
 
@@ -97,22 +97,24 @@
             echo "Failed to connect to MySQL: " . mysqli_connect_error();
         }
 
-        $firstname = $_POST['firstname'];
-        $lastname = $_POST['lastname'];
+        $landscaperfirst = $_POST['landscaperfirst'];
+        $landscaperlast = $_POST['landscaperlast'];
         $password = $_POST['password'];
         $landscaperid = $_POST['landscaperid'];
         $phonenumber = $_POST['phonenumber'];
         $emailaddress = $_POST['emailaddress'];
         $transaction = $_POST['transaction'];
 
-        $sql = "SELECT * FROM LandscaperRecords WHERE FirstName = '$firstname' AND LastName = '$lastname'
-                AND Password = '$password' AND LandscaperID = $landscaperid";
+        $sql = "SELECT * FROM LandscaperRecords WHERE LandscaperFirst = '$landscaperfirst'
+                AND LandscaperLast = '$landscaperlast' AND Password = '$password'
+                AND LandscaperID = $landscaperid";
+
         $result = $con->query($sql);
         
         if ($result->num_rows > 0)
         {
             session_start();
-            $_SESSION['firstname'] = $firstname;
+            $_SESSION['landscaperfirst'] = $landscaperfirst;
 
             switch ($transaction)
             {

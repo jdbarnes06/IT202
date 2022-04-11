@@ -19,18 +19,18 @@
         }
         
         session_start();
-        $firstname = $_SESSION['firstname'];
+        $landscaperfirst = $_SESSION['landscaperfirst'];
         
-        $sql = "SELECT LandscaperRecords.FirstName, LandscaperRecords.LastName, LandscaperRecords.LandscaperID, 
-                LandscaperRecords.PhoneNumber, LandscaperRecords.EmailAddress, ClientRecords.FirstName, 
-                ClientRecords.LastName, ClientRecords.ClientID, ClientOrders.ShippingAddress, 
-                ClientAppointments.ServiceType, ClientAppointments.ServiceDate, ClientAppointments.ServiceID,
-                ClientOrders.ProductType, ClientOrders.OrderNumber
+        $sql = "SELECT LandscaperRecords.LandscaperFirst, LandscaperRecords.LandscaperLast,
+                LandscaperRecords.LandscaperID, LandscaperRecords.PhoneNumber, LandscaperRecords.EmailAddress,
+                ClientRecords.FirstName, ClientRecords.LastName, ClientRecords.ClientID,
+                ClientOrders.ShippingAddress, ClientAppointments.ServiceType, ClientAppointments.ServiceDate,
+                ClientAppointments.ServiceID, ClientOrders.ProductType, ClientOrders.OrderNumber
                 FROM ClientAppointments
                 INNER JOIN LandscaperRecords ON ClientAppointments.LandscaperID = LandscaperRecords.LandscaperID
                 INNER JOIN ClientRecords ON ClientAppointments.ClientID = ClientRecords.ClientID
                 INNER JOIN ClientOrders ON ClientAppointments.ServiceID = ClientOrders.ServiceID
-                WHERE LandscaperRecords.FirstName = '$firstname'";
+                WHERE LandscaperRecords.LandscaperFirst = '$landscaperfirst'";
 
         $result = $con->query($sql);
         
@@ -44,8 +44,8 @@
             
             while ($row = $result->fetch_assoc())
             {
-                echo "<tr><td>".$row["LandscaperRecords.FirstName"]."</td>
-                          <td>".$row["LandscaperRecords.LastName"]."</td>
+                echo "<tr><td>".$row["LandscaperRecords.LandscaperFirst"]."</td>
+                          <td>".$row["LandscaperRecords.LandscaperLast"]."</td>
                           <td>".$row["LandscaperRecords.LandscaperID"]."</td>
                           <td>".$row["LandscaperRecords.PhoneNumber"]."</td>
                           <td>".$row["LandscaperRecords.EmailAddress"]."</td>

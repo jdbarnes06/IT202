@@ -1,6 +1,6 @@
 function validate()
 {
-    const names = ["firstname", "lastname"];
+    const names = ["landscaperfirst", "landscaperlast"];
 
     for (let i = 0; i < names.length; i++)
     {
