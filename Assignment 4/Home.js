@@ -61,13 +61,13 @@ function validate()
         return;
     }
 
-    var idNumber = document.getElementById("idnumber").value;
+    var landscaperID = document.getElementById("landscaperid").value;
 
-    if (idNumber.match(/^[0-9]{6}$/) == null)
+    if (landscaperID.match(/^[0-9]{6}$/) == null)
     {
         alert("ID Number must contain exactly 6 numbers.");
-        document.getElementById("idnumber").focus();
-        document.getElementById("idnumber").select();
+        document.getElementById("landscaperid").focus();
+        document.getElementById("landscaperid").select();
         return;
     }
 

@@ -39,10 +39,10 @@
 
             <div class="row">
                 <div class="column">
-                    <label for="idnumber">ID Number:</label>
+                    <label for="landscaperid">Landscaper ID:</label>
                 </div>
                 <div class="column">
-                    <input type="text" id="idnumber" name="idnumber" placeholder="Required">
+                    <input type="text" id="landscaperid" name="landscaperid" placeholder="Required">
                 </div>
             </div>
 
@@ -100,13 +100,13 @@
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
         $password = $_POST['password'];
-        $idnumber = $_POST['idnumber'];
+        $landscaperid = $_POST['landscaperid'];
         $phonenumber = $_POST['phonenumber'];
         $emailaddress = $_POST['emailaddress'];
         $transaction = $_POST['transaction'];
 
         $sql = "SELECT * FROM LandscaperRecords WHERE FirstName = '$firstname' AND LastName = '$lastname'
-                AND Password = '$password' AND IDNumber = $idnumber";
+                AND Password = '$password' AND LandscaperID = $landscaperid";
         $result = $con->query($sql);
         
         if ($result->num_rows > 0)

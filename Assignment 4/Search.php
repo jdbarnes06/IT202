@@ -21,13 +21,13 @@
         session_start();
         $firstname = $_SESSION['firstname'];
         
-        $sql = "SELECT LandscaperRecords.FirstName, LandscaperRecords.LastName, LandscaperRecords.IDNumber, 
+        $sql = "SELECT LandscaperRecords.FirstName, LandscaperRecords.LastName, LandscaperRecords.LandscaperID, 
                 LandscaperRecords.PhoneNumber, LandscaperRecords.EmailAddress, ClientRecords.FirstName, 
                 ClientRecords.LastName, ClientRecords.ClientID, ClientOrders.ShippingAddress, 
                 ClientAppointments.ServiceType, ClientAppointments.ServiceDate, ClientAppointments.ServiceID,
                 ClientOrders.ProductType, ClientOrders.OrderNumber
                 FROM ClientAppointments
-                INNER JOIN LandscaperRecords ON ClientAppointments.LandscaperID = LandscaperRecords.IDNumber
+                INNER JOIN LandscaperRecords ON ClientAppointments.LandscaperID = LandscaperRecords.LandscaperID
                 INNER JOIN ClientRecords ON ClientAppointments.ClientID = ClientRecords.ClientID
                 INNER JOIN ClientOrders ON ClientAppointments.ServiceID = ClientOrders.ServiceID
                 WHERE LandscaperRecords.FirstName = '$firstname'";
@@ -46,7 +46,7 @@
             {
                 echo "<tr><td>".$row["LandscaperRecords.FirstName"]."</td>
                           <td>".$row["LandscaperRecords.LastName"]."</td>
-                          <td>".$row["LandscaperRecords.IDNumber"]."</td>
+                          <td>".$row["LandscaperRecords.LandscaperID"]."</td>
                           <td>".$row["LandscaperRecords.PhoneNumber"]."</td>
                           <td>".$row["LandscaperRecords.EmailAddress"]."</td>
                           <td>".$row["ClientRecords.FirstName"]."</td>
