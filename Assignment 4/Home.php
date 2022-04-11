@@ -14,7 +14,7 @@
                 <div class="column">
                     <label for="landscaperfirst">First Name:</label>
                 </div>
-                <div class="column" style="opacity: 1">
+                <div class="column">
                     <input type="text" id="landscaperfirst" name="landscaperfirst" placeholder="Required">                    
                 </div>
             </div>
@@ -85,57 +85,61 @@
     <script src="Home.js"></script>
 
     <?php
-        $servername = "sql1.njit.edu";
-        $username = "jb724";
-        $password = "ejmUc3O1%#W7";
-        $dbname = "jb724";
-
-        $con = mysqli_connect($servername,$username,$password,$dbname);
-
-        if (mysqli_connect_errno())
+        if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-            echo "Failed to connect to MySQL: " . mysqli_connect_error();
-        }
-
-        $landscaperfirst = $_POST['landscaperfirst'];
-        $landscaperlast = $_POST['landscaperlast'];
-        $password = $_POST['password'];
-        $landscaperid = $_POST['landscaperid'];
-        $phonenumber = $_POST['phonenumber'];
-        $emailaddress = $_POST['emailaddress'];
-        $transaction = $_POST['transaction'];
-
-        $sql = "SELECT * FROM LandscaperRecords WHERE LandscaperFirst = '$landscaperfirst'
-                AND LandscaperLast = '$landscaperlast' AND Password = '$password'
-                AND LandscaperID = $landscaperid";
-
-        $result = $con->query($sql);
+            echo "<div>PHP is running.</div>";
         
-        if ($result->num_rows > 0)
-        {
-            session_start();
-            $_SESSION['landscaperfirst'] = $landscaperfirst;
+            $servername = "sql1.njit.edu";
+            $username = "jb724";
+            $password = "ejmUc3O1%#W7";
+            $dbname = "jb724";
 
-            switch ($transaction)
+            $con = mysqli_connect($servername,$username,$password,$dbname);
+
+            if (mysqli_connect_errno())
             {
-                case "search a landscaper's accounts":
-                    echo "<script> location.href='Search.php'; </script>";
-                case "book a customer's appointment":
-                    echo "<script> location.href='Book.php'; </script>";
-                case "place a customer's order":
-                    echo "<script> location.href='Place.php'; </script>";
-                case "update a customer's order":
-                    echo "<script> location.href='Update.php'; </script>";
-                case "cancel a customer's appointment":
-                    echo "<script> location.href='CancelApp.php'; </script>";
-                case "cancel a customer's order":
-                    echo "<script> location.href='CancelOrder.php'; </script>";
-                case "create a new customer account":
-                    echo "<script> location.href='Create.php'; </script>";
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
-        }
 
-        $con->close();
+            $landscaperfirst = $_POST['landscaperfirst'];
+            $landscaperlast = $_POST['landscaperlast'];
+            $password = $_POST['password'];
+            $landscaperid = $_POST['landscaperid'];
+            $transaction = $_POST['transaction'];
+
+            $sql = "SELECT * FROM LandscaperRecords WHERE LandscaperFirst = '$landscaperfirst'
+                    AND LandscaperLast = '$landscaperlast' AND Password = '$password'
+                    AND LandscaperID = $landscaperid";
+
+            $result = $con->query($sql);
+        
+            if ($result->num_rows > 0)
+            {
+                session_start();
+                $_SESSION['landscaperfirst'] = $landscaperfirst;
+                $_SESSION['landscaperid'] = $landscaperid;
+
+                switch ($transaction)
+                {
+                    case "search a landscaper's accounts":
+                        echo "<script> location.href='Search.php'; </script>";
+                    case "book a customer's appointment":
+                        echo "<script> location.href='Book.php'; </script>";
+                    case "place a customer's order":
+                        echo "<script> location.href='Place.php'; </script>";
+                    case "update a customer's order":
+                        echo "<script> location.href='Update.php'; </script>";
+                    case "cancel a customer's appointment":
+                        echo "<script> location.href='CancelApp.php'; </script>";
+                    case "cancel a customer's order":
+                        echo "<script> location.href='CancelOrder.php'; </script>";
+                    case "create a new customer account":
+                        echo "<script> location.href='Create.php'; </script>";
+                }
+            }
+
+            $con->close();
+        }
     ?>
 </body>
 </html>
