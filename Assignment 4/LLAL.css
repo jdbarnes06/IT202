@@ -5,7 +5,7 @@
 
 .column 
 {
-    width: 25%;
+    width: 35%;
     float: left
 }
 
@@ -43,5 +43,5 @@ select, input[type=checkbox]
 input[type=text], input[type=password] 
 {
     margin: 0px 0px 20px 0px;
-    width: 200%;
+    width: 150%;
 }

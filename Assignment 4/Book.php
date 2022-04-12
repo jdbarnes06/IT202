@@ -99,16 +99,13 @@
             {
                 session_start();
                 $landscaperid = $_SESSION['landscaperid'];
-                $RNGAppNum = rand(0,100);
+                $RNGAppNum = rand(0,99);
 
-                echo "<div> $RNGAppNum </div>";
-
-                $sql2 = "INSERT INTO ClientAppointments (ServiceType, ServiceDate, LandscaperID, ClientID, ServiceID)
-                         VALUES ('$servicetype','$servicedate', $landscaperid, $clientid, $RNGAppNum)";
-                
-                $result2 = $con->query($sql2);
+                $sql = "INSERT INTO ClientAppointments (ServiceType, ServiceDate, LandscaperID, ClientID, ServiceID, AppointmentNumber)
+                         VALUES ('$servicetype','$servicedate', $landscaperid, $clientid, $clientid, $RNGAppNum)";
+                $result = $con->query($sql);
                     
-                if ($result2 === TRUE)
+                if ($result === TRUE)
                 {
                     echo "<script> alert('Record creation succeeded.'); </script>";
                 }
