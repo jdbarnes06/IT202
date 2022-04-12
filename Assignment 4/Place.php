@@ -4,6 +4,7 @@
 <head>
     <title>Place Order</title>
     <link rel="stylesheet" href="LLAL.css">
+    <script src="Home.js"></script>
 </head>
 <body>
     <div class="mainDiv">
@@ -64,7 +65,7 @@
                 </div>
             </div>
 
-            <input type="submit">
+            <input type="submit" onclick="confirm()">
         </form>
     </div>
 
@@ -88,8 +89,6 @@
             $clientid = $_POST['clientid'];
             $serviceid = $_POST['serviceid'];
             $producttype = $_POST['producttype'];
-
-            echo "<script> confirm('Before placing an order, you must have booked an appointment. Click OK if you have one or Cancel if not.'); </script>";
 
             $sql = "SELECT * FROM ClientRecords WHERE ClientFirst = '$clientfirst'
                     AND ClientLast = '$clientlast' AND ClientID = $clientid";

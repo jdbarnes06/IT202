@@ -100,3 +100,11 @@ function validate()
         }
     }
 }
+
+function confirm()
+{
+    if (confirm("Before placing an order, you must have booked an appointment. Click OK if you have one or Cancel if not.") == false)
+    {
+        location.href = "Book.php";
+    }
+}

@@ -4,6 +4,7 @@
 <head>
     <title>Home</title>
     <link rel="stylesheet" href="LLAL.css">
+    <script src="Home.js"></script>
 </head>
 <body>
     <div class="mainDiv">
@@ -82,7 +83,6 @@
             <button type="reset">Reset</button>
         </form>
     </div>
-    <script src="Home.js"></script>
 
     <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
