@@ -105,6 +105,11 @@ function message()
 {
     if (confirm("Before placing an order, you must have booked an appointment. Click OK if you have one or Cancel if not.") == false)
     {
-        location.href = "https://web.njit.edu/~jb724/Book.php";
+        location.href = "Book.php";
+        return;
+    }
+    else
+    {
+        document.forms["orderform"].submit();
     }
 }

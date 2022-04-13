@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="mainDiv">
-        <form method="post">
+        <form name="orderform" method="post">
             <h1>Lushest Lawns And Landscaping: Place An Order</h1>
 
             <div class="row">
@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <input type="submit" onclick="message()">
+            <input type="button" onclick="message()" value="Submit">
         </form>
     </div>
 
