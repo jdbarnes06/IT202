@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="mainDiv">
-        <form method="post">
+        <form name="homeform" method="post">
             <h1>Lushest Lawns and Landscaping</h1>
 
             <div class="row">
@@ -79,7 +79,7 @@
                 <option value="create a new customer account">Create a New Customer Account</option>
             </select><br>
 
-            <input type="submit" onclick="validate()">
+            <input type="button" onclick="validate()" value="Submit">
             <button type="reset">Reset</button>
         </form>
     </div>
@@ -87,7 +87,6 @@
     <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-            echo "<div>PHP is running.</div>";
         
             $servername = "sql1.njit.edu";
             $username = "jb724";
@@ -136,6 +135,10 @@
                     case "create a new customer account":
                         echo "<script> location.href='Create.php'; </script>";
                 }
+            }
+            else
+            {
+                echo "<script> alert('Information does not match any records.'); </script>";
             }
 
             $con->close();

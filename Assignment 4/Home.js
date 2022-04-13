@@ -99,6 +99,8 @@ function validate()
             return;
         }
     }
+
+    document.forms["homeform"].submit();
 }
 
 function message()
