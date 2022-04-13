@@ -102,7 +102,7 @@
                 $RNGAppNum = rand(0,99);
 
                 $sql = "INSERT INTO ClientAppointments (ServiceType, ServiceDate, LandscaperID, ClientID, ServiceID, AppointmentNumber)
-                         VALUES ('$servicetype','$servicedate', $landscaperid, $clientid, $clientid, $RNGAppNum)";
+                        VALUES ('$servicetype','$servicedate', $landscaperid, $clientid, $clientid, $RNGAppNum)";
                 $result = $con->query($sql);
                     
                 if ($result === TRUE)
