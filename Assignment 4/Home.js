@@ -103,7 +103,7 @@ function validate()
     document.forms["homeform"].submit();
 }
 
-function message()
+function placeMessage()
 {
     if (confirm("Before placing an order, you must have booked an appointment. Click OK if you have one or Cancel if not.") == false)
     {

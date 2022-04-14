@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-            <input type="button" onclick="message()" value="Submit">
+            <input type="button" onclick="placeMessage()" value="Submit">
         </form>
     </div>
 
