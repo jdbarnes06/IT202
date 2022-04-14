@@ -101,11 +101,27 @@
 
                 if ($result->num_rows > 0)
                 {
+                    session_start();
+                    $clientaddress = $_SESSION['clientaddress'];
+                    $landscaperid = $_SESSION['landscaperid'];
+                    $RNGOrderNum = rand(0,99);
 
+                    $sql = "INSERT INTO ClientOrders (ProductType, ShippingAddress, OrderNumber, LandscaperID, ClientID, ServiceID)
+                        VALUES ('$producttype','$clientaddress', $RNGOrderNum, $landscaperid, $clientid, $serviceid)";
+                    $result = $con->query($sql);
+                    
+                    if ($result === TRUE)
+                    {
+                        echo "<script> alert('Client order placed.'); </script>";
+                    }
+                    else
+                    {
+                        echo "<script> alert('Record creation failed.'); </script>";
+                    }
                 }
                 else 
                 {
-                    echo "<script> alert('Client cannot be found. Recheck data entered or create an account.'); </script>";
+                    echo "<script> alert('Client appointment cannot be found. Recheck data entered or book an appointment.'); </script>";
                 }
             }
             else

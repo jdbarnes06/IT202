@@ -98,6 +98,7 @@
             if ($result->num_rows > 0)
             {
                 session_start();
+                $_SESSION['clientaddress'] = $clientaddress;
                 $landscaperid = $_SESSION['landscaperid'];
                 $RNGAppNum = rand(0,99);
 
@@ -107,7 +108,7 @@
                     
                 if ($result === TRUE)
                 {
-                    echo "<script> alert('Record creation succeeded.'); </script>";
+                    echo "<script> alert('Appointment booked.'); </script>";
                 }
                 else
                 {
