@@ -136,3 +136,12 @@ function cancelAppMessage()
         location.href = "CancelApp.php";
     }
 }
+
+function cancelOrderMessage()
+{
+    if (confirm("You are about to cancel this order. Continue?") == true)
+    {
+        document.getElementById("confirm").value = "true";
+        document.forms["cancelorderform"].submit();
+    }
+}

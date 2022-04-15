@@ -56,15 +56,6 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="column">
-                    <label for="servicedate">Date of Service:</label>
-                </div>
-                <div class="column">
-                    <input type="text" id="servicedate" name="servicedate" placeholder="Required">
-                </div>
-            </div>
-
             <input type="button" onclick="placeMessage()" value="Submit">
         </form>
     </div>

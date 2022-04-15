@@ -24,16 +24,16 @@
 
             <div class="row">
                 <div class="column">
-                    <label for="serviceid">Service ID:</label>
+                    <label for="ordernumber">Order ID:</label>
                 </div>
                 <div class="column">
-                    <input type="text" id="serviceid" name="serviceid" placeholder="Required">
+                    <input type="text" id="ordernumber" name="ordernumber" placeholder="Required">
                 </div>
             </div>
 
             <div class="row">
                 <div class="column">
-                    <label for="producttype">Product Needed:</label>
+                    <label for="producttype">Updated Order:</label>
                 </div>
                 <div class="column">
                     <input type="text" id="producttype" name="producttype" placeholder="Required">
@@ -64,15 +64,15 @@
             if ($confirm == "false")
             {
                 $clientid = $_POST['clientid'];
-                $serviceid = $_POST['serviceid'];
+                $ordernumber = $_POST['ordernumber'];
                 $producttype = $_POST['producttype'];
 
                 session_start();
                 $_SESSION['clientid'] = $clientid;
-                $_SESSION['serviceid'] = $serviceid;
+                $_SESSION['ordernumber'] = $ordernumber;
                 $_SESSION['producttype'] = $producttype;
 
-                $sql = "SELECT * FROM ClientOrders WHERE ClientID = $clientid AND ServiceID = $serviceid";
+                $sql = "SELECT * FROM ClientOrders WHERE ClientID = $clientid AND OrderNumber = $ordernumber";
                 $result = $con->query($sql);
 
                 if ($result->num_rows > 0)
@@ -88,9 +88,9 @@
             {
                 session_start();
                 $clientid = $_SESSION['clientid'];
-                $serviceid = $_SESSION['serviceid'];
+                $ordernumber = $_SESSION['ordernumber'];
                 $producttype = $_SESSION['producttype'];
-                $sql = "UPDATE ClientOrders SET ProductType = '$producttype' WHERE ClientID = $clientid AND ServiceID = $serviceid";
+                $sql = "UPDATE ClientOrders SET ProductType = '$producttype' WHERE ClientID = $clientid AND OrderNumber = $ordernumber";
                 $result = $con->query($sql);
                 echo "<script> alert('Order updated.'); </script>";               
             }
