@@ -81,15 +81,16 @@
                 }
                 else
                 {
-                    echo "<script> alert('Record not found.'); </script>";
+                    echo "<script> alert('Order not found.'); </script>";
                 }
             }
             else
             {
                 session_start();
                 $clientid = $_SESSION['clientid'];
+                $serviceid = $_SESSION['serviceid'];
                 $producttype = $_SESSION['producttype'];
-                $sql = "UPDATE ClientOrders SET ProductType = '$producttype' WHERE ClientID = $clientid";
+                $sql = "UPDATE ClientOrders SET ProductType = '$producttype' WHERE ClientID = $clientid AND ServiceID = $serviceid";
                 $result = $con->query($sql);
                 echo "<script> alert('Order updated.'); </script>";               
             }

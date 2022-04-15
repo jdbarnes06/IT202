@@ -124,3 +124,12 @@ function updateMessage()
         document.forms["updateform"].submit();
     }
 }
+
+function cancelAppMessage()
+{
+    if (confirm("You are about to cancel this appointment. Continue?") == true)
+    {
+        document.getElementById("confirm").value = "true";
+        document.forms["cancelappform"].submit();
+    }
+}
