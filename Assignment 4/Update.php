@@ -72,7 +72,7 @@
                 $_SESSION['serviceid'] = $serviceid;
                 $_SESSION['producttype'] = $producttype;
 
-                $sql = "SELECT * FROM ClientOrders WHERE ClientID = $clientid";
+                $sql = "SELECT * FROM ClientOrders WHERE ClientID = $clientid AND ServiceID = $serviceid";
                 $result = $con->query($sql);
 
                 if ($result->num_rows > 0)
@@ -91,7 +91,7 @@
                 $producttype = $_SESSION['producttype'];
                 $sql = "UPDATE ClientOrders SET ProductType = '$producttype' WHERE ClientID = $clientid";
                 $result = $con->query($sql);
-                echo "<script> alert('Order placed.'); </script>";               
+                echo "<script> alert('Order updated.'); </script>";               
             }
 
             $con->close();
