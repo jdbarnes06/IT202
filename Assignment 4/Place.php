@@ -7,6 +7,17 @@
     <script src="Home.js"></script>
 </head>
 <body>
+    <ul>
+        <li><a href="Home.php">Home</a></li>
+        <li><a href="Search.php">Search Landscaper's Records</a></li>
+        <li><a href="Book.php">Book Appointment</a></li>
+        <li><a href="Place.php">Place Order</a></li>
+        <li><a href="Update.php">Update Order</a></li>
+        <li><a href="CancelApp.php">Cancel Appointment</a></li>
+        <li><a href="CancelOrder.php">Cancel Order</a></li>
+        <li><a href="Create.php">Create Client Account</a></li>
+    </ul>
+
     <div class="mainDiv">
         <form name="orderform" method="post">
             <h1>Lushest Lawns And Landscaping: Place An Order</h1>
