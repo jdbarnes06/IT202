@@ -1,23 +1,17 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
 <head>
     <title>Update Order</title>
     <link rel="stylesheet" href="LLAL.css">
-    <script>
-        function updateMessage()
-        {
-            if (confirm("You are about to update this order. Continue?") == false)
-            {
-                return 0;
-            }
-        }
-    </script>
+    <script src="Home.js"></script>
 </head>
 <body>
     <div class="mainDiv">
-        <form method="post">
+        <form name="updateform" method="post">
             <h1>Lushest Lawns And Landscaping: Place An Order</h1>
+
+            <input type="hidden" id="confirm" name="confirm" value="false" />
 
             <div class="row">
                 <div class="column">
@@ -53,7 +47,6 @@
     <?php
         if ($_SERVER['REQUEST_METHOD'] == 'POST')
         {
-        
             $servername = "sql1.njit.edu";
             $username = "jb724";
             $password = "ejmUc3O1%#W7";
@@ -66,22 +59,40 @@
                 echo "Failed to connect to MySQL: " . mysqli_connect_error();
             }
 
-            $clientid = $_POST['clientid'];
+            $confirm = $_POST['confirm'];
 
-            $sql = "SELECT * FROM ClientOrders WHERE ClientID = $clientid";
-            $result = $con->query($sql);
-
-            if ($result->num_rows > 0)
+            if ($confirm == "false")
             {
-                echo "<script> updateMessage(); </script>";     
-                
-                if () // Condition to check return value of updateMessage()
+                $clientid = $_POST['clientid'];
+                $serviceid = $_POST['serviceid'];
+                $producttype = $_POST['producttype'];
+
+                session_start();
+                $_SESSION['clientid'] = $clientid;
+                $_SESSION['serviceid'] = $serviceid;
+                $_SESSION['producttype'] = $producttype;
+
+                $sql = "SELECT * FROM ClientOrders WHERE ClientID = $clientid";
+                $result = $con->query($sql);
+
+                if ($result->num_rows > 0)
                 {
-                    exit("Update canceled.");
+                    echo "<script> updateMessage(); </script>";
+                }
+                else
+                {
+                    echo "<script> alert('Record not found.'); </script>";
                 }
             }
-
-            echo "<script> alert('Not exiting.'); </script>";
+            else
+            {
+                session_start();
+                $clientid = $_SESSION['clientid'];
+                $producttype = $_SESSION['producttype'];
+                $sql = "UPDATE ClientOrders SET ProductType = '$producttype' WHERE ClientID = $clientid";
+                $result = $con->query($sql);
+                echo "<script> alert('Order placed.'); </script>";               
+            }
 
             $con->close();
         }

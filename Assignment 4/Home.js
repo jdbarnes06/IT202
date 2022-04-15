@@ -115,3 +115,12 @@ function placeMessage()
         document.forms["orderform"].submit();
     }
 }
+
+function updateMessage()
+{
+    if (confirm("You are about to update this order. Continue?") == true)
+    {
+        document.getElementById("confirm").value = "true";
+        document.forms["updateform"].submit();
+    }
+}
