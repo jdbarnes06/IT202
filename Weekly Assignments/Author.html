@@ -1,0 +1,17 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Author Name Lookup</title>
+    <script src="Author.js"></script>
+</head>
+<body>
+    <form>
+        <h3><b>Please enter the name of the author you want to look up.</b></h3>
+        <label for="aname">Author's Name:</label>
+        <input type="text" id="aname" name="aname" onkeyup="findAuthor(this.value)">
+    </form>
+
+    <p>FOUND: <span id="txtHint"></span></p>
+</body>
+</html>
