@@ -76,7 +76,7 @@
         {
             $servername = "sql1.njit.edu";
             $username = "jb724";
-            $password = "ejmUc3O1%#W7";
+            $password = "8hIzY0VU%brS";
             $dbname = "jb724";
 
             $con = mysqli_connect($servername,$username,$password,$dbname);
