@@ -18,6 +18,19 @@
             exit("Failed to connect to MySQL: " . mysqli_connect_error());
         }
 
+        $sql = "SELECT Name FROM ChatTable";
+
+        $result = mysqli_query($con,$sql);
+
+        echo "<table border='1px' cellpadding=5><tr><th>Name</th></tr>";
+        
+        while ($row = mysqli_fetch_assoc($result))
+        {
+            echo "<tr><td>" . $row["Name"] . "</td></tr>";
+        }
+
+        echo "</table>";
+        
         mysqli_close($con);
     ?>        
 </body>
