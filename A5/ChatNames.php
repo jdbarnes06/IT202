@@ -22,7 +22,7 @@
 
         $result = mysqli_query($con,$sql);
 
-        echo "<table border='1px' cellpadding=5><tr><th>Name</th></tr>";
+        echo "<table border='1px' cellpadding=20><tr><th>Name</th></tr>";
         
         while ($row = mysqli_fetch_assoc($result))
         {
