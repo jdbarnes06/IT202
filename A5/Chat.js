@@ -15,6 +15,8 @@ function sendmsg()
 
     xmlhttp1.open("GET", "Send.php?uname1=" + username1 + "&pwd=" + password + "&msg=" + msgsent, true);
     xmlhttp1.send();
+
+    receivemsg();
 }
 
 function receivemsg()
