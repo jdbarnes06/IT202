@@ -43,14 +43,14 @@
         <input type="password" id="password"><br>
 
         <label for="msgsent">Message</label>
-        <input type="text" id="msgsent" onkeyup="CreateXMLHTTPObj()">
+        <input type="text" id="msgsent" onkeyup="sendmsg()">
 
         <p id="errormsg"></p>
     </form>
 
     <form>
         <label for="username2">Name</label>
-        <input type="text" id="username2" onkeyup=""><br>
+        <input type="text" id="username2" onkeyup="receivemsg()"><br>
 
         <p>Message: <span id="msgrcvd"></span></p>
     </form>
