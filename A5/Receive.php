@@ -17,11 +17,7 @@
 
     $result = mysqli_query($con,$sql);
 
-    if (mysqli_num_rows($result) == 0)
-    {
-        echo "Not Found (Invalid Name)";
-    }
-    else 
+    if (mysqli_num_rows($result) > 0)
     {
 	    $result = mysqli_query($con,"SELECT Message FROM ChatTable WHERE Name = '$uname2'");
 

@@ -1,3 +1,5 @@
+setInterval(receivemsg, 500);
+
 function sendmsg()
 {
     const xmlhttp1 = new XMLHttpRequest();
@@ -9,14 +11,12 @@ function sendmsg()
     {
         if (this.readyState == 4 && this.status == 200)
         {
-            document.getElementById("errormsg").innerHTML = this.responseText;
+            document.getElementById("msgsend").innerHTML = this.responseText;
         }
     }
 
     xmlhttp1.open("GET", "Send.php?uname1=" + username1 + "&pwd=" + password + "&msg=" + msgsent, true);
     xmlhttp1.send();
-
-    receivemsg();
 }
 
 function receivemsg()
@@ -28,7 +28,7 @@ function receivemsg()
     {
         if (this.readyState == 4 && this.status == 200)
         {
-            document.getElementById("msgrcvd").innerHTML = this.responseText;
+            document.getElementById("msgreceive").innerHTML = this.responseText;
         }
     }
 

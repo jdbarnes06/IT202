@@ -4,6 +4,7 @@
 <head>
     <title>Chat Application</title>
     <script src="Chat.js"></script>
+    <link rel="stylesheet" href="Chat.css">
 </head>
 <body>
     <?php
@@ -23,7 +24,7 @@
 
         $result = mysqli_query($con,$sql);
 
-        echo "<table border='1px' cellpadding=20><tr><th>Name</th>";
+        echo "<table border='1px' cellpadding=20><tr><th>Chat Room Usernames</th>";
         
         while ($row = mysqli_fetch_assoc($result))
         {
@@ -35,24 +36,24 @@
         mysqli_close($con);
     ?>
     
-    <form>
-        <label for="username1">Name</label>
-        <input type="text" id="username1"><br>
+    <div>
+        <form>
+            <label for="username1">Your Username:</label>
+            <input type="text" id="username1"><br>
 
-        <label for="password">Password</label>
-        <input type="password" id="password"><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password"><br>
 
-        <label for="msgsent">Message</label>
-        <input type="text" id="msgsent" onkeyup="sendmsg()">
+            <label for="msgsent">Your Message:</label>
+            <input type="text" id="msgsent" onkeyup="sendmsg()">
 
-        <p id="errormsg"></p>
-    </form>
+            <p class="makered" id="msgsend"></p>
+        
+            <label for="username2">Their Username:</label>
+            <input type="text" id="username2" onkeyup="receivemsg()"><br>
 
-    <form>
-        <label for="username2">Name</label>
-        <input type="text" id="username2" onkeyup="receivemsg()"><br>
-
-        <p>Message: <span id="msgrcvd"></span></p>
-    </form>
+            <p>Their Message: <span class="makegreen" id="msgreceive"></span></p>
+        </form>
+    </div>
 </body>
 </html>
